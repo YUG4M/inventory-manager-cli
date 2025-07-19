@@ -1,0 +1,15 @@
+Write down features you want in the inventory manager.	
+- data oraganisation
+- wastage control
+- restock alert
+- expiration alert
+- sorting
+- filtering
+- purchase order management
+- digital reciept 
+- demand forecasting
+- vendor management 
+- vendor details
+- ABC analysis
+- Accurate data
+- Real time Visibility
