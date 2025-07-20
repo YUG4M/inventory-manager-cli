@@ -13,3 +13,10 @@ Write down features you want in the inventory manager.
 - ABC analysis
 - Accurate data
 - Real time Visibility
+
+
+menu consists
+-add
+-viewall
+-delete
+-update
