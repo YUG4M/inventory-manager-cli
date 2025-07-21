@@ -1,5 +1,13 @@
-a = {"name": "Maggi", "price": 12, "quantity": 1}
-inventory= []
+import json
+
+try:
+    with open("inventory.json", "r") as f:
+        inventory = json.load(f)
+    print("Inventory loaded.")
+except FileNotFoundError:
+    inventory = []
+    print("No previous data. Starting fresh!")
+
 def add_item():
     while True:
         name = input("Enter item name: ")
@@ -17,7 +25,6 @@ def view_items():
     print("All items: ")
     for item in inventory:
             print(item)
-
 
 def update_item():
     name = input("Enter item name to update: ")
@@ -38,20 +45,26 @@ def delete_item():
             return
     print("Item not found.")        
 
+def save_inventory():
+    with open("inventory.json", "w") as f:
+        json.dump(inventory, f)
+    print("Inventory saved!")
+
 def menu():
     while True:    
         print("Select Function:" \
-        " 1) Add Item, 2) View All, 3) Exit")
-        ch=int(input("Choose function (1,2 or 3): "))
-        if ch == "1":
-            add_item(inventory)
-        elif ch == "2":
-            view_items(inventory)
-        elif ch == "3":
-            update_item(inventory)
-        elif ch == "4":
-            delete_item(inventory)
-        elif ch=="5":
+        " 1) Add Item, 2) View All, 3) Update Item, 4) Delete Item, 5) Exit")
+        ch=int(input("Choose function in numbers (1,2,3,....): "))
+        if ch == 1:
+            add_item()
+        elif ch == 2:
+            view_items()
+        elif ch == 3:
+            update_item()
+        elif ch == 4:
+            delete_item()
+        elif ch == 5:
+            save_inventory()
             print("Thank you for using our system!")
             break
         else:
