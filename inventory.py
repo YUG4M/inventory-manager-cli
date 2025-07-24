@@ -1,4 +1,5 @@
 import json
+import tkinter as tk
 
 try:
     with open("inventory.json", "r") as f:
@@ -7,6 +8,15 @@ try:
 except FileNotFoundError:
     inventory = []
     print("No previous data. Starting fresh!")
+
+window = tk.Tk()
+window.title("InventoryShell")
+window.geometry("600x400")
+window.resizable(False, False)
+label = tk.Label(window, text="Welcome to InventoryShell!", font=("Times New Roman", 14))
+label.pack(pady=20)
+
+window.mainloop()
 
 def add_item():
     while True:
